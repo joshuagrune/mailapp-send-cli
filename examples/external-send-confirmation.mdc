@@ -1,0 +1,31 @@
+---
+description: Require explicit user confirmation before any external send (email, API post, deploy, push notification, etc.)
+alwaysApply: true
+---
+
+# External Send Confirmation
+
+**Never send anything externally without the user's explicit approval first.**
+
+## What counts as "external send"
+
+- Email to anyone outside the local machine
+- Git push to remote (unless the user explicitly asked to push in the same message)
+- Deploy / promote to production
+- Posting to Slack, Discord, social, webhooks, or third-party APIs that create user-visible side effects
+- Push notifications
+- Uploading documents to external services
+
+## Required workflow
+
+1. **Prepare** — draft, generate PDF, build preview, or dry-run.
+2. **Show the user** — recipient(s), subject, body summary, attachment names, amounts/dates if relevant.
+3. **Ask** — one clear yes/no confirmation.
+4. **Wait** — do not send until the user confirms.
+5. **Send only after approval** — then send and report result.
+
+## What explicit "send …" authorizes
+
+- **Prepare only** — a message that says "send invoice to finance@…" authorizes drafting and previewing, **not** the actual send.
+- **Always confirm before send** — even when all details are specified upfront.
+- Read-only operations (fetch, list, sync pull, preview) — no confirmation needed.
