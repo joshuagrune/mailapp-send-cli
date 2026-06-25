@@ -49,6 +49,12 @@ python3 send_mail_via_mailapp.py \
 
 If you use this from an AI agent, pair it with a rule that **always confirms before external sends**. See `examples/external-send-confirmation.mdc`.
 
+## Used by
+
+- [StatMap Finance invoice workflow](https://github.com/joshuagrune/mailapp-send-cli) (local wrapper: `Projects/StatMap/Finance/Scripts/send_invoice_via_mailapp.py`) imports this package from `Projects/mailapp-send-cli/`.
+
+**Maintenance:** improve Mail.app sending here → commit + push this repo. Downstream wrappers stay thin.
+
 ## Limitations
 
 - AppleScript + Mail.app only (no SMTP/Gmail API)
